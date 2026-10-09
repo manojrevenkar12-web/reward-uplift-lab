@@ -27,6 +27,17 @@ Real experiments never reveal an individual's treatment effect, so an uplift mod
 
 The real-data run (`uplift-lab criteo`, or the [Colab notebook](notebooks/criteo_colab.ipynb)) repeats everything that can be observed without ground truth: sample-ratio check, average effect, and uplift-model comparison by held-out Qini area.
 
+## On real data: Criteo Uplift
+
+A 10% random sample of the Criteo dataset (1,397,959 users; outcome: site visit) gives ([`reports/criteo/REPORT.md`](reports/criteo/REPORT.md)):
+
+- **The experiment is clean.** 85.05% of users are treated against a designed 85% (sample-ratio test p = 0.08).
+- **Advertising lifts visits by 1.03 points** [0.94, 1.12], a 27% relative lift.
+- **The effect is concentrated.** The 10% of users the X-learner ranks highest show a **5.3-point lift**, five times the average; below the top three deciles the lift is under 0.2 points. Predicted and observed uplift agree decile by decile.
+- **Model choice holds up out of sample.** The X-learner has the highest Qini area on both the validation split (0.0031) and the separate test split (0.0029); the T-learner is weakest on both, as in the simulation.
+
+![Criteo: observed uplift by decile](reports/criteo/figures/criteo_deciles.png)
+
 ## What the study does
 
 | Step | Method | Code |
@@ -81,7 +92,7 @@ pytest                                                # 72 tests, incl. statisti
 pytest -m "not slow"                                  # fast subset
 ```
 
-Real data: download `criteo-research-uplift-v2.1.csv.gz` from the [Criteo AI Lab dataset page](https://ailab.criteo.com/criteo-uplift-prediction-dataset/), then
+Real data: the original Criteo download link no longer serves the file, so use the [mirror published with libuplift](https://github.com/jszymon/uplift_sklearn_data/releases/download/Criteo/criteo-research-uplift-v2.1.csv.gz) (311 MB; dataset described on the [Criteo AI Lab page](https://ailab.criteo.com/criteo-uplift-prediction-dataset/)), then
 
 ```bash
 uplift-lab -v criteo data/criteo-research-uplift-v2.1.csv.gz --outcome visit --sample-frac 0.1

@@ -20,3 +20,4 @@ htmlcov/
 # Ad-hoc study outputs; the committed reference report lives in reports/simulation.
 reports/*
 !reports/simulation/
+!reports/criteo/

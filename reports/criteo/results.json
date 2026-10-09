@@ -1,0 +1,127 @@
+{
+  "n_users": 1397959,
+  "outcome": "visit",
+  "srm": {
+    "n_treatment": 1188996,
+    "n_control": 208963,
+    "expected_treatment_share": 0.85,
+    "observed_treatment_share": 0.8505227978789077,
+    "chi2": 2.9967594494100003,
+    "p_value": 0.08343123975936328,
+    "mismatch": false
+  },
+  "ate": {
+    "method": "difference_in_means",
+    "estimate": 0.01028254283319123,
+    "std_error": 0.00046286370739506884,
+    "ci_low": 0.009375346636946209,
+    "ci_high": 0.011189739029436251,
+    "p_value": 2.456794687279289e-109,
+    "n_treatment": 1188996,
+    "n_control": 208963
+  },
+  "relative_lift": {
+    "method": "relative_lift",
+    "estimate": 0.26969637229222276,
+    "std_error": 0.014875811141073936,
+    "ci_low": 0.24054031821489816,
+    "ci_high": 0.29885242636954734,
+    "p_value": 1.8523036532733394e-73,
+    "n_treatment": 1188996,
+    "n_control": 208963
+  },
+  "uplift": {
+    "models": {
+      "S-learner": {
+        "validation_qini_area": 0.002699015676266445,
+        "observed_qini_area": 0.0027423373691484805
+      },
+      "T-learner": {
+        "validation_qini_area": 0.0025424180626579373,
+        "observed_qini_area": 0.002451448290219603
+      },
+      "X-learner": {
+        "validation_qini_area": 0.003083882196097854,
+        "observed_qini_area": 0.0029007220502551487
+      },
+      "DR-learner": {
+        "validation_qini_area": 0.002912529705842586,
+        "observed_qini_area": 0.00269305940813778
+      }
+    },
+    "selected_model": "X-learner",
+    "selected_by": "highest Qini area on a validation split of the training users",
+    "deciles": [
+      {
+        "bin": 1.0,
+        "n_users": 69928.0,
+        "predicted_uplift": 0.060734397643755364,
+        "observed_uplift": 0.052752083055556426,
+        "std_error": 0.004722669613504413
+      },
+      {
+        "bin": 2.0,
+        "n_users": 69928.0,
+        "predicted_uplift": 0.012660704640324351,
+        "observed_uplift": 0.008660713698584663,
+        "std_error": 0.0027843453418679403
+      },
+      {
+        "bin": 3.0,
+        "n_users": 69928.0,
+        "predicted_uplift": 0.004028845867063504,
+        "observed_uplift": 0.0028730987633353647,
+        "std_error": 0.00159227829380788
+      },
+      {
+        "bin": 4.0,
+        "n_users": 69928.0,
+        "predicted_uplift": 0.0028504828412552964,
+        "observed_uplift": 3.183737206865697e-05,
+        "std_error": 0.0010288021920532217
+      },
+      {
+        "bin": 5.0,
+        "n_users": 69928.0,
+        "predicted_uplift": 0.0020604181700786834,
+        "observed_uplift": 0.0017750821213257315,
+        "std_error": 0.001093901604604145
+      },
+      {
+        "bin": 6.0,
+        "n_users": 69928.0,
+        "predicted_uplift": 0.0008078661339272366,
+        "observed_uplift": 0.00110394179484336,
+        "std_error": 0.0004372736375016864
+      },
+      {
+        "bin": 7.0,
+        "n_users": 69928.0,
+        "predicted_uplift": 0.00076003060151945,
+        "observed_uplift": -0.0001620344728787813,
+        "std_error": 0.0003038599349420932
+      },
+      {
+        "bin": 8.0,
+        "n_users": 69928.0,
+        "predicted_uplift": 0.00076003060151945,
+        "observed_uplift": 0.0002897025223626458,
+        "std_error": 0.0001907780683581861
+      },
+      {
+        "bin": 9.0,
+        "n_users": 69927.0,
+        "predicted_uplift": 0.0007600306015194499,
+        "observed_uplift": -0.00013113662337931986,
+        "std_error": 0.0002857825435381094
+      },
+      {
+        "bin": 10.0,
+        "n_users": 69927.0,
+        "predicted_uplift": -0.002864106940181154,
+        "observed_uplift": -0.0006525151908916352,
+        "std_error": 0.002530011379686978
+      }
+    ]
+  }
+}
