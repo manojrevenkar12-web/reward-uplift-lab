@@ -14,7 +14,7 @@ htmlcov/
 .ipynb_checkpoints/
 
 # Large external data: download it yourself (see README).
-data/
+/data/
 *.csv.gz
 
 # Ad-hoc study outputs; the committed reference report lives in reports/simulation.

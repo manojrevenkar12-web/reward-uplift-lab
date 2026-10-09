@@ -61,7 +61,7 @@ convention = "google"
 "src/uplift_lab/plots.py" = ["E402"]
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.12"  # current numpy stubs use 3.12 syntax; runtime still supports 3.11
 strict = true
 warn_unused_ignores = true
 ignore_missing_imports = true
