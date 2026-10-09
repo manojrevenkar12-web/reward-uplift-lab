@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.ipynb_checkpoints/
+
+# Large external data: download it yourself (see README).
+data/
+*.csv.gz
+
+# Ad-hoc study outputs; the committed reference report lives in reports/simulation.
+reports/*
+!reports/simulation/

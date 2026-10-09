@@ -1,0 +1,68 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "reward-uplift-lab"
+version = "0.1.0"
+description = "Experimentation and uplift modelling for incentive targeting: trustworthy A/B analysis, variance reduction, sequential testing, meta-learners and profit-aware targeting."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Manoj Kumar Prakash" }]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "scipy>=1.11",
+    "scikit-learn>=1.4",
+    "duckdb>=1.0",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff==0.16.8",
+    "mypy==2.3.1",
+    "pandas-stubs>=2.1",
+]
+
+[project.scripts]
+uplift-lab = "uplift_lab.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/uplift_lab"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = ["slow: statistical simulation tests (deselect with '-m \"not slow\"')"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "N", "SIM", "NPY", "PD", "RUF", "D"]
+ignore = [
+    "D105", "D107",          # magic methods / __init__ docstrings
+    "PD011",                 # false positives on non-pandas `.values` attributes
+    "N803", "N806",          # X is the conventional name for a feature matrix
+    "RUF001", "RUF002", "RUF003",  # allow unicode symbols (θ, τ, ±) in docs
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D"]
+"src/uplift_lab/plots.py" = ["E402"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_ignores = true
+ignore_missing_imports = true
+files = ["src"]
